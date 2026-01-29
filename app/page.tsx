@@ -16,8 +16,7 @@ export default function Home() {
     listing_id: '',
     price: '',
     date_sold: '',
-    quantity: 1,
-    notes: ''
+    quantity: 1
   })
 
   // --- AUTH GUARD + INITIAL LOAD ---
@@ -66,8 +65,7 @@ export default function Home() {
       listing_id: '',
       price: '',
       date_sold: '',
-      quantity: 1,
-      notes: ''
+      quantity: 1
     })
 
     refreshRepairs()
@@ -176,9 +174,9 @@ export default function Home() {
           value={form.date_sold}
           onChange={e => setForm({ ...form, date_sold: e.target.value })}
         />
-        <textarea className="input" placeholder="Notes"
-          value={form.notes}
-          onChange={e => setForm({ ...form, notes: e.target.value })}
+        <input className="input" type="number" placeholder="Quantity"
+          value={form.quantity}
+          onChange={e => setForm({ ...form, quantity: Number(e.target.value) })}
         />
         <button className="bg-black text-white px-4 py-2 rounded">
           Save Repair
@@ -209,6 +207,7 @@ export default function Home() {
             <th className="border p-1">Listing</th>
             <th className="border p-1">Price</th>
             <th className="border p-1">Date</th>
+            <th className="border p-1">Quantity</th>
             <th className="border p-1">Source</th>
           </tr>
         </thead>
@@ -219,6 +218,7 @@ export default function Home() {
               <td className="border p-1">{r.listing_id}</td>
               <td className="border p-1">£{r.price}</td>
               <td className="border p-1">{r.date_sold}</td>
+              <td className="border p-1">{r.quantity}</td>
               <td className="border p-1">{r.source}</td>
             </tr>
           ))}
