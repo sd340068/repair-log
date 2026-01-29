@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+// @ts-ignore
 import Papa from 'papaparse'
+
 import { supabase } from '../lib/supabase'
 
 export default function Home() {
